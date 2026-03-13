@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="pt-BR" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfoX | Tech Dashboard</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Orbitron:wght@700;900&family=Libre+Barcode+128&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4facfe;
+            --secondary: #00f2fe;
+            --bg: #050505;
+        }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--bg);
+            color: white;
+            scroll-behavior: smooth;
+        }
+        .font-brand { font-family: 'Orbitron', sans-serif; }
+        .font-barcode { font-family: 'Libre Barcode 128', cursive; }
+        
+        .glass { 
+            background: rgba(15, 15, 20, 0.7); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.08); 
+        }
+
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-btn.active {
+            color: var(--secondary);
+            border-bottom: 2px solid var(--secondary);
+            opacity: 1;
+        }
+
+        .gradient-text { 
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+
+        .buy-btn {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            transition: all 0.3s ease;
+        }
+        .buy-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(79, 172, 254, 0.4);
+        }
+    </style>
+</head>
+<body class="min-h-full">
+
+    <nav class="sticky top-0 z-50 glass border-b border-white/5 px-8 pt-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-center mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-[#00f2fe] to-[#4facfe] rounded-xl flex items-center justify-center">
+                        <span class="text-black font-brand font-black text-xl">X</span>
+                    </div>
+                    <div>
+                        <h1 class="font-brand font-bold text-2xl tracking-tighter gradient-text uppercase leading-none">InfoX</h1>
+                        <span class="text-[8px] text-blue-500 font-bold tracking-[0.3em]">TEC PARA TODOS</span>
+                    </div>
+                </div>
+                <div class="hidden md:block font-barcode text-5xl text-blue-500/30">DATA-SCIENCE-FIAP</div>
+            </div>
+            
+            <div class="flex gap-8 text-[10px] font-black tracking-[0.2em] opacity-60">
+                <button onclick="openTab(event, 'aba-produtos')" class="tab-btn active pb-4 transition-all uppercase">01. Produtos</button>
+                <button onclick="openTab(event, 'aba-avaliacoes')" class="tab-btn pb-4 transition-all uppercase">02. Avaliações</button>
+                <button onclick="openTab(event, 'aba-crescimento')" class="tab-btn pb-4 transition-all uppercase">03. Crescimento</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+
+        <section id="aba-produtos" class="tab-content active">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="glass p-8 rounded-[2rem] border border-white/5 flex flex-col justify-between">
+                    <div>
+                        <div class="text-blue-500 font-mono text-[10px] mb-2">REF: RAM-DDR5-32</div>
+                        <h3 class="font-brand text-lg mb-4 uppercase">Memória RAM DDR5</h3>
+                        <p class="text-gray-400 text-sm mb-6">Alta performance para multitarefas e processamento de dados.</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-black">R$ 899</span>
+                        <button class="buy-btn px-6 py-2 rounded-full text-black font-bold text-xs uppercase">Comprar</button>
+                    </div>
+                </div>
+
+                <div class="glass p-8 rounded-[2rem] border border-white/5 flex flex-col justify-between">
+                    <div>
+                        <div class="text-blue-500 font-mono text-[10px] mb-2">REF: AUD-PRO-G</div>
+                        <h3 class="font-brand text-lg mb-4 uppercase">Headset Gamer Pro</h3>
+                        <p class="text-gray-400 text-sm mb-6">Som imersivo 7.1 com cancelamento de ruído ativo.</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-black">R$ 459</span>
+                        <button class="buy-btn px-6 py-2 rounded-full text-black font-bold text-xs uppercase">Comprar</button>
+                    </div>
+                </div>
+
+                <div class="glass p-8 rounded-[2rem] border border-blue-500/20 flex flex-col justify-between shadow-[0_0_20px_rgba(59,130,246,0.1)]">
+                    <div>
+                        <div class="text-blue-500 font-mono text-[10px] mb-2">REF: PC-ULTRA-4070</div>
+                        <h3 class="font-brand text-lg mb-4 uppercase text-blue-400">PC Gamer RTX 4070</h3>
+                        <p class="text-gray-400 text-sm mb-6">Máquina completa preparada para qualquer desafio gráfico.</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-black">R$ 8.499</span>
+                        <button class="buy-btn px-6 py-2 rounded-full text-black font-bold text-xs uppercase">Comprar</button>
+                    </div>
+                </div>
+
+                <div class="glass p-8 rounded-[2rem] border border-white/5 flex flex-col justify-between">
+                    <div>
+                        <div class="text-blue-500 font-mono text-[10px] mb-2">REF: NB-PORT-G</div>
+                        <h3 class="font-brand text-lg mb-4 uppercase">Notebook Gamer</h3>
+                        <p class="text-gray-400 text-sm mb-6">Poder de processamento mobile com tela de 144Hz.</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-black">R$ 6.299</span>
+                        <button class="buy-btn px-6 py-2 rounded-full text-black font-bold text-xs uppercase">Comprar</button>
+                    </div>
+                </div>
+
+                <div class="glass p-8 rounded-[2rem] border border-white/5 flex flex-col justify-between">
+                    <div>
+                        <div class="text-blue-500 font-mono text-[10px] mb-2">REF: MON-CURV-27</div>
+                        <h3 class="font-brand text-lg mb-4 uppercase">Monitor Curvo 27"</h3>
+                        <p class="text-gray-400 text-sm mb-6">Resolução QHD com curvatura perfeita para imersão.</p>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-2xl font-black">R$ 2.199</span>
+                        <button class="buy-btn px-6 py-2 rounded-full text-black font-bold text-xs uppercase">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="aba-avaliacoes" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass p-8 rounded-3xl border-l-4 border-pink-500">
+                    <div class="text-yellow-400 text-[10px] mb-2">★★★★★</div>
+                    <p class="text-sm italic text-gray-300 mb-6">"Comprei o headset pro meu filho e ele ADOROU! Qualidade incrível e atendimento super paciente."</p>
+                    <span class="text-xs font-bold text-pink-500 uppercase tracking-widest">Maria Santos (Mãe)</span>
+                </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-blue-400 shadow-[0_0_20px_rgba(59,130,246,0.1)]">
+                    <div class="text-yellow-400 text-[10px] mb-2">★★★★★</div>
+                    <p class="text-sm italic text-gray-300 mb-6">"Montei meu setup inteiro aqui na InfoX. O PC roda tudo no ultra nas lives. Qualidade impecável!"</p>
+                    <span class="text-xs font-bold text-blue-400 uppercase tracking-widest">Alanzoka (Streamer)</span>
+                </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-green-500">
+                    <div class="text-yellow-400 text-[10px] mb-2">★★★★★</div>
+                    <p class="text-sm italic text-gray-300 mb-6">"Como desenvolvedor, o teclado mecânico que comprei aqui mudou meu workflow. Robustez nota 10."</p>
+                    <span class="text-xs font-bold text-green-500 uppercase tracking-widest">Marcos Oliveira (Dev)</span>
+                </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-purple-500">
+                    <div class="text-yellow-400 text-[10px] mb-2">★★★★★</div>
+                    <p class="text-sm italic text-gray-300 mb-6">"Fidelidade de cor absurda no monitor. Essencial para o meu trabalho como Designer."</p>
+                    <span class="text-xs font-bold text-purple-500 uppercase tracking-widest">Julia Ferreira (Designer)</span>
+                </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-orange-500">
+                    <div class="text-yellow-400 text-[10px] mb-2">★★★★★</div>
+                    <p class="text-sm italic text-gray-300 mb-6">"Tenho 68 anos e fui muito bem atendido. O upgrade de RAM deixou meu notebook rápido."</p>
+                    <span class="text-xs font-bold text-orange-500 uppercase tracking-widest">Roberto Lima (Aposentado)</span>
+                </div>
+                <div class="glass p-8 rounded-3xl border-l-4 border-cyan-500">
+                    <div class="text-yellow-400 text-[10px] mb-2">★★★★★</div>
+                    <p class="text-sm italic text-gray-300 mb-6">"Preço justo que cabe no bolso de estudante. Consegui montar meu primeiro PC para estudar."</p>
+                    <span class="text-xs font-bold text-cyan-500 uppercase tracking-widest">Carla Mendes (Universitária)</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="aba-crescimento" class="tab-content">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 glass p-10 rounded-[2.5rem] flex flex-col justify-between overflow-hidden relative group">
+                    <div class="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl"></div>
+                    <div>
+                        <h4 class="text-gray-500 text-[10px] font-black uppercase tracking-[0.3em] mb-6">Ticket Médio</h4>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-7xl font-black gradient-text">R$ 500</span>
+                            <span class="text-2xl font-bold text-blue-500/50">+</span>
+                        </div>
+                    </div>
+                    <div class="mt-20">
+                        <div class="font-barcode text-6xl text-white/20 mb-2">GROWTH-IFX-2026</div>
+                        <p class="text-[8px] text-gray-600 font-mono uppercase tracking-widest">INFOX SYSTEM ACCESS</p>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 glass p-10 rounded-[2.5rem]">
+                    <div class="flex justify-between items-start mb-12">
+                        <h4 class="text-gray-400 text-[10px] font-black uppercase tracking-[0.2em]">Market Share Growth (%)</h4>
+                        <span class="bg-blue-500/10 text-blue-400 text-[8px] font-black px-4 py-2 rounded-full border border-blue-500/20">COMPARATIVO 2026</span>
+                    </div>
+
+                    <div class="flex items-end justify-between h-64 gap-2 md:gap-8 px-4 mt-8">
+                        <div class="flex-1 flex flex-col justify-end items-center h-full gap-4">
+                            <div class="w-full bg-gray-800 rounded-t-xl border-t border-gray-700" style="height: 38%"></div>
+                            <div class="text-center">
+                                <p class="text-[10px] font-bold text-gray-500">18%</p>
+                                <p class="text-[8px] uppercase text-gray-600">Pichau</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-1 flex flex-col justify-end items-center h-full gap-4">
+                            <div class="w-full bg-gray-800 rounded-t-xl border-t border-gray-700" style="height: 46%"></div>
+                            <div class="text-center">
+                                <p class="text-[10px] font-bold text-gray-500">22%</p>
+                                <p class="text-[8px] uppercase text-gray-600">Kabum</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-1 flex flex-col justify-end items-center h-full gap-4">
+                            <div class="w-full bg-gray-800 rounded-t-xl border-t border-gray-700" style="height: 52%"></div>
+                            <div class="text-center">
+                                <p class="text-[10px] font-bold text-gray-500">25%</p>
+                                <p class="text-[8px] uppercase text-gray-600">Terabyte</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex-1 flex flex-col justify-end items-center h-full gap-4">
+                            <div class="w-full bg-gradient-to-t from-blue-600 to-cyan-300 rounded-t-xl shadow-[0_0_30px_rgba(59,130,246,0.3)] relative" style="height: 95%">
+                                <div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-blue-500 text-black text-[10px] font-black px-3 py-1 rounded">47%</div>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-[10px] font-black text-blue-400 uppercase tracking-widest">InfoX</p>
+                            </div>
+                        </div>
+                    </div>
+        </section>
+
+    </main>
+
+    <footer class="mt-20 py-12 border-t border-white/5 text-center">
+        <p class="text-[10px] text-gray-600 font-bold uppercase tracking-[0.5em]">Future Makers System — State of the Art Technology</p>
+    </footer>
+
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+                tablinks[i].style.opacity = "0.4";
+            }
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+            evt.currentTarget.style.opacity = "1";
+        }
+    </script>
+</body>
+</html>
